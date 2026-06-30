@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  color: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Color theme */
+@theme {
+  --color-primary: #2563eb;
+  --color-secondary: #7c3aed;
+  --color-accent: #f97316;
+
+  --color-success: #22c55e;
+  --color-warning: #eab308;
+  --color-danger: #ef4444;
+
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+
+  --color-text: #1f2937;
+  --color-text-light: #6b7280;
+
+  --radius: 12px;
+}
+
+/* container class */
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+}
