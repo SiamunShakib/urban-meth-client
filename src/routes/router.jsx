@@ -11,6 +11,9 @@ import Register from "../pages/Register/Register";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Admin from "../pages/Admin/Admin"
+import PrivateRoute from "./PrivateRoute";
+import AuthLayout from "../layouts/AuthLayout";
+import Profile from "../pages/Profile/Profile";
 
 const router = createBrowserRouter([
     {
@@ -43,19 +46,20 @@ const router = createBrowserRouter([
                 Component: Payment
             },
             {
-                path: "login",
-                Component: Login
-            },
-            {
-                path: "register",
-                Component: Register
+                path: "profile",
+                Component: Profile
             }
+           
         ]
 
     },
     {
         path: "/dashboard",
-        Component: DashboardLayout,
+        element:(
+            <PrivateRoute>
+                <DashboardLayout/>
+            </PrivateRoute>
+        ),
         children:[
             {
                 index: true,
@@ -64,6 +68,20 @@ const router = createBrowserRouter([
             {
                 path: "admin",
                 Component: Admin
+            }
+        ]
+    },
+    {
+        path: '/',
+        Component: AuthLayout,
+        children: [
+             {
+                path: "login",
+                Component: Login
+            },
+            {
+                path: "register",
+                Component: Register
             }
         ]
     }

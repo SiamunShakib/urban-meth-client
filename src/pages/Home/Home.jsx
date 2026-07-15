@@ -13,10 +13,11 @@ const Home = () => {
         subtitle="A modern e-commerce experience."
       />
 
+      
+
       <Button>Shop Now</Button>
 
       <Input placeholder="Search products..." />
-
       <Loader />
 
       <EmptyState
