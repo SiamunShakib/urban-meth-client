@@ -1,11 +1,16 @@
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebase.config";
 import useAuth from "../../hooks/useAuth";
+import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useAuth(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -21,11 +26,14 @@ const Register = () => {
       .then(async (result) => {
         console.log("firebase result:", result);
 
+        await updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo,
+        });
         const userData = {
           uid: result.user.uid,
           name: name,
           email: email,
-          password: password,
           photoURL: photo,
           role: "user",
           createdAt: serverTimestamp(),
@@ -34,15 +42,27 @@ const Register = () => {
 
         try {
           await setDoc(doc(db, "users", result.user.uid), userData);
-
         } catch (error) {
           console.error("🔥 Firestore Error:", error);
         }
         form.reset();
+        navigate(from, { replace: true });
+        Swal.fire({
+          title: "Registration Successful!",
+          text: "You have been Signing Up successfully.",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
       })
       .catch((error) => {
         console.error("❌ Registration Failed");
         console.error("Error Code:", error.code);
+        Swal.fire({
+          title: "Registration Failed!",
+          text: "Something went wrong while Sign Up.",
+          icon: "error",
+        });
       });
   };
 

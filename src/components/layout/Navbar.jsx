@@ -1,13 +1,8 @@
 import { useState } from "react";
-import {
-  FiLogOut,
-  FiMenu,
-  FiShoppingCart,
-  FiUser,
-  FiX,
-} from "react-icons/fi";
-import { Link, NavLink } from "react-router";
+import { FiLogOut, FiMenu, FiShoppingCart, FiUser, FiX } from "react-icons/fi";
+import { Link, NavLink, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -17,16 +12,44 @@ const navLinks = [
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate()
 
-  const handleLogout = () => {
-    logOut()
-      .then(() => {
-        console.log("Logged out");
+  const handleLogout = async () => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You will be logged out of your account.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#6641E9",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Logout",
+      cancelButtonText: "Cancel",
+      reverseButtons: true,
+    });
+    if(result.isConfirmed){
+      try{
+        await logOut();
+
         setOpen(false);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+        navigate("/", {replace: true});
+        
+        Swal.fire({
+          title: "Logged Out!",
+          text: "You have been logged out successfully.",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false
+        });
+      }catch(error){
+        console.error(error);
+
+        Swal.fire({
+          title: "Opps!",
+          text: "Something went wrong while logging out.",
+          icon: "error"
+        });
+      }
+    } 
   };
 
   return (
@@ -57,13 +80,24 @@ const Navbar = () => {
 
         {/* Desktop Right Side */}
         <div className="hidden md:flex items-center gap-5">
+          {user?.role === "admin" && (
+              <NavLink
+                to="/admin"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary font-semibold"
+                    : "hover:text-primary transition px-5 py-2 shadow-lg rounded-2xl bg-gray-200" 
+                }
+              >
+                Go To Admin panel
+              </NavLink>
+          ) }
           <Link to="/cart">
             <FiShoppingCart size={22} />
           </Link>
-          
+
           {user ? (
             <Link to="/profile" className="flex gap-x-4">
-
               {user.photoURL ? (
                 <img
                   src={user.photoURL}
@@ -84,20 +118,14 @@ const Navbar = () => {
               </button>
             </Link>
           ) : (
-            <Link
-              to="/login"
-              className="btn btn-primary btn-sm"
-            >
+            <Link to="/login" className="btn btn-primary btn-sm">
               Login
             </Link>
           )}
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden"
-        >
+        <button onClick={() => setOpen(!open)} className="md:hidden">
           {open ? <FiX size={26} /> : <FiMenu size={26} />}
         </button>
       </nav>
@@ -119,6 +147,20 @@ const Navbar = () => {
                 </NavLink>
               </li>
             ))}
+
+            {user?.role === "admin" && (
+              <li>
+                <NavLink
+                  to="/dashboard"
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    isActive ? "text-primary font-semibold" : ""
+                  }
+                >
+                  Dashboard
+                </NavLink>
+              </li>
+            )}
 
             <li>
               <Link
@@ -159,10 +201,7 @@ const Navbar = () => {
               </>
             ) : (
               <li>
-                <Link
-                  to="/login"
-                  onClick={() => setOpen(false)}
-                >
+                <Link to="/login" onClick={() => setOpen(false)}>
                   Login
                 </Link>
               </li>

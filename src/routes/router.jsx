@@ -10,10 +10,13 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard";
-import Admin from "../pages/Admin/Admin"
 import PrivateRoute from "./PrivateRoute";
 import AuthLayout from "../layouts/AuthLayout";
 import Profile from "../pages/Profile/Profile";
+import Error from "../pages/Error/Error";
+import AdminRoute from "./AdminRoute";
+import AdminLayout from "../layouts/AdminLayout";
+import Admin from "../pages/Admin/Admin"
 
 const router = createBrowserRouter([
     {
@@ -33,22 +36,6 @@ const router = createBrowserRouter([
                 path: "shop/:id",
                 Component: ProductDetails,
             },
-            {
-                path: "cart",
-                Component: Cart,
-            },
-            {
-                path: "checkout",
-                Component: Checkout
-            },
-            {
-                path: "payment",
-                Component: Payment
-            },
-            {
-                path: "profile",
-                Component: Profile
-            }
            
         ]
 
@@ -65,9 +52,21 @@ const router = createBrowserRouter([
                 index: true,
                 Component: Dashboard
             },
+             {
+                path: "cart",
+                Component: Cart,
+            },
             {
-                path: "admin",
-                Component: Admin
+                path: "checkout",
+                Component: Checkout
+            },
+            {
+                path: "payment",
+                Component: Payment
+            },
+            {
+                path: "profile",
+                Component: Profile
             }
         ]
     },
@@ -83,6 +82,21 @@ const router = createBrowserRouter([
                 path: "register",
                 Component: Register
             }
+        ]
+    },
+    {
+        path: "admin",
+        element:(
+            <AdminRoute>
+                <AdminLayout/>
+            </AdminRoute>
+        ),
+         children:[
+            {
+                index: true,
+                Component: Admin
+            },
+            
         ]
     }
 ]);

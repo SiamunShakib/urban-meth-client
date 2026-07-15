@@ -1,10 +1,14 @@
-import { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import SocialLogin from "./SocialLogin";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { signInUser } = useAuth(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -14,28 +18,26 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-
-
-    loginUser(email, password)
-      .then((result) => {
-        console.log("✅ Login Successful!");
-        console.log("=====================================");
-        console.log("Firebase User:", result.user);
-        console.log("🆔 UID:", result.user.uid);
-        console.log("👤 Name:", result.user.displayName);
-        console.log("📧 Email:", result.user.email);
-        console.log("📱 Email Verified:", result.user.emailVerified);
-        console.log("🖼️ Photo URL:", result.user.photoURL);
-        console.log("=====================================");
-
+    signInUser(email, password)
+      .then(() => {
         form.reset();
+        navigate(from, { replace: true });
+        Swal.fire({
+          title: "Login Successful!",
+          text: "You have been Logged in successfully.",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
       })
       .catch((error) => {
         console.error("❌ Login Failed");
-        console.error("=====================================");
         console.error("Error Code:", error.code);
-        console.error("Error Message:", error.message);
-        console.error("=====================================");
+        Swal.fire({
+          title: "Login Failed!",
+          text: "Something went wrong while Login.",
+          icon: "error",
+        });
       });
   };
 
@@ -77,7 +79,7 @@ const Login = () => {
                 Login
               </button>
             </form>
-            <SocialLogin/>
+            <SocialLogin />
             <div className="divider">OR</div>
 
             <Link to="/register">
