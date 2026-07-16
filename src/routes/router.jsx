@@ -33,7 +33,7 @@ const router = createBrowserRouter([
                 Component: Shop
             },
             {
-                path: "shop/:id",
+                path: "products/:id",
                 Component: ProductDetails,
             },
            

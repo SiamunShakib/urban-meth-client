@@ -1,0 +1,279 @@
+[
+  {
+    "_id": "P001",
+    "name": "Classic White T-Shirt",
+    "description": "Premium cotton crew neck t-shirt with a soft and breathable fabric for everyday wear.",
+    "price": 1200,
+    "discountedPrice": 950,
+    "size": ["S", "M", "L", "XL"],
+    "images": [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a"
+    ],
+    "category": "T-Shirts",
+    "stock": 45,
+    "rating": 4.7,
+    "reviews": 128,
+    "specifications": {
+      "Material": "100% Cotton",
+      "Fit": "Regular",
+      "Color": "White"
+    },
+    "featured": true,
+    "flashSale": true,
+    "createdAt": "2026-07-16T10:00:00Z"
+  },
+  {
+    "_id": "P002",
+    "name": "Slim Fit Denim Jeans",
+    "description": "Stretchable slim-fit denim jeans with premium stitching.",
+    "price": 2800,
+    "discountedPrice": 2450,
+    "size": ["30", "32", "34", "36"],
+    "images": [
+      "https://images.unsplash.com/photo-1542272604-787c3835535d",
+      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
+    ],
+    "category": "Jeans",
+    "stock": 30,
+    "rating": 4.6,
+    "reviews": 94,
+    "specifications": {
+      "Material": "Denim",
+      "Fit": "Slim Fit",
+      "Color": "Blue"
+    },
+    "featured": true,
+    "flashSale": false,
+    "createdAt": "2026-07-15T09:30:00Z"
+  },
+  {
+    "_id": "P003",
+    "name": "Casual Hoodie",
+    "description": "Warm fleece hoodie perfect for winter and casual outings.",
+    "price": 3200,
+    "discountedPrice": 2800,
+    "size": ["M", "L", "XL"],
+    "images": [
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7",
+      "https://images.unsplash.com/photo-1523398002811-999ca8dec234"
+    ],
+    "category": "Hoodies",
+    "stock": 18,
+    "rating": 4.8,
+    "reviews": 156,
+    "specifications": {
+      "Material": "Fleece",
+      "Fit": "Relaxed",
+      "Color": "Black"
+    },
+    "featured": true,
+    "flashSale": true,
+    "createdAt": "2026-07-14T08:20:00Z"
+  },
+  {
+    "_id": "P004",
+    "name": "Running Sneakers",
+    "description": "Lightweight running shoes with breathable mesh and cushioned sole.",
+    "price": 4500,
+    "discountedPrice": 3999,
+    "size": ["40", "41", "42", "43"],
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519"
+    ],
+    "category": "Shoes",
+    "stock": 25,
+    "rating": 4.9,
+    "reviews": 211,
+    "specifications": {
+      "Material": "Mesh",
+      "Sole": "Rubber",
+      "Color": "Gray"
+    },
+    "featured": true,
+    "flashSale": false,
+    "createdAt": "2026-07-13T11:10:00Z"
+  },
+  {
+    "_id": "P005",
+    "name": "Leather Wallet",
+    "description": "Genuine leather wallet with multiple card slots.",
+    "price": 1800,
+    "discountedPrice": 1499,
+    "size": ["Standard"],
+    "images": [
+      "https://images.unsplash.com/photo-1627123424574-724758594e93"
+    ],
+    "category": "Accessories",
+    "stock": 60,
+    "rating": 4.5,
+    "reviews": 73,
+    "specifications": {
+      "Material": "Leather",
+      "Color": "Brown"
+    },
+    "featured": false,
+    "flashSale": true,
+    "createdAt": "2026-07-12T12:15:00Z"
+  },
+  {
+    "_id": "P006",
+    "name": "Sports Cap",
+    "description": "Adjustable cotton sports cap for outdoor activities.",
+    "price": 950,
+    "discountedPrice": 750,
+    "size": ["Free Size"],
+    "images": [
+      "https://images.unsplash.com/photo-1521369909029-2afed882baee"
+    ],
+    "category": "Accessories",
+    "stock": 70,
+    "rating": 4.4,
+    "reviews": 41,
+    "specifications": {
+      "Material": "Cotton",
+      "Color": "Navy Blue"
+    },
+    "featured": false,
+    "flashSale": false,
+    "createdAt": "2026-07-11T09:45:00Z"
+  },
+  {
+    "_id": "P007",
+    "name": "Formal Shirt",
+    "description": "Wrinkle-resistant formal shirt suitable for office wear.",
+    "price": 2200,
+    "discountedPrice": 1890,
+    "size": ["M", "L", "XL"],
+    "images": [
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf"
+    ],
+    "category": "Shirts",
+    "stock": 35,
+    "rating": 4.6,
+    "reviews": 67,
+    "specifications": {
+      "Material": "Cotton Blend",
+      "Fit": "Regular",
+      "Color": "Sky Blue"
+    },
+    "featured": true,
+    "flashSale": false,
+    "createdAt": "2026-07-10T07:30:00Z"
+  },
+  {
+    "_id": "P008",
+    "name": "Cargo Pants",
+    "description": "Comfortable cargo pants with six utility pockets.",
+    "price": 2600,
+    "discountedPrice": 2200,
+    "size": ["30", "32", "34", "36"],
+    "images": [
+      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a"
+    ],
+    "category": "Pants",
+    "stock": 20,
+    "rating": 4.7,
+    "reviews": 59,
+    "specifications": {
+      "Material": "Cotton Twill",
+      "Fit": "Relaxed",
+      "Color": "Olive"
+    },
+    "featured": false,
+    "flashSale": true,
+    "createdAt": "2026-07-09T14:10:00Z"
+  },
+  {
+    "_id": "P009",
+    "name": "Digital Smart Watch",
+    "description": "Fitness smartwatch with heart rate monitoring and notifications.",
+    "price": 6200,
+    "discountedPrice": 5499,
+    "size": ["42mm"],
+    "images": [
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+    ],
+    "category": "Watches",
+    "stock": 15,
+    "rating": 4.8,
+    "reviews": 189,
+    "specifications": {
+      "Display": "AMOLED",
+      "Battery": "7 Days",
+      "Water Resistant": "Yes"
+    },
+    "featured": true,
+    "flashSale": true,
+    "createdAt": "2026-07-08T16:40:00Z"
+  },
+  {
+    "_id": "P010",
+    "name": "Travel Backpack",
+    "description": "Water-resistant backpack with laptop compartment.",
+    "price": 3400,
+    "discountedPrice": 2999,
+    "size": ["25L"],
+    "images": [
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+    ],
+    "category": "Bags",
+    "stock": 28,
+    "rating": 4.7,
+    "reviews": 102,
+    "specifications": {
+      "Material": "Polyester",
+      "Capacity": "25 Liters",
+      "Color": "Black"
+    },
+    "featured": true,
+    "flashSale": false,
+    "createdAt": "2026-07-07T13:00:00Z"
+  },
+  {
+    "_id": "P011",
+    "name": "Polarized Sunglasses",
+    "description": "UV400 polarized sunglasses for men and women.",
+    "price": 1600,
+    "discountedPrice": 1299,
+    "size": ["Free Size"],
+    "images": [
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083"
+    ],
+    "category": "Accessories",
+    "stock": 52,
+    "rating": 4.5,
+    "reviews": 81,
+    "specifications": {
+      "Lens": "Polarized",
+      "Frame": "Metal"
+    },
+    "featured": false,
+    "flashSale": true,
+    "createdAt": "2026-07-06T11:25:00Z"
+  },
+  {
+    "_id": "P012",
+    "name": "Leather Jacket",
+    "description": "Premium faux leather jacket with modern biker design.",
+    "price": 7800,
+    "discountedPrice": 6999,
+    "size": ["M", "L", "XL"],
+    "images": [
+      "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504"
+    ],
+    "category": "Jackets",
+    "stock": 12,
+    "rating": 4.9,
+    "reviews": 145,
+    "specifications": {
+      "Material": "Faux Leather",
+      "Fit": "Slim",
+      "Color": "Black"
+    },
+    "featured": true,
+    "flashSale": false,
+    "createdAt": "2026-07-05T10:00:00Z"
+  }
+]

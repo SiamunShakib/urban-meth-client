@@ -92,7 +92,7 @@ const Navbar = () => {
                 Go To Admin panel
               </NavLink>
           ) }
-          <Link to="/cart">
+          <Link to="dashboard/cart">
             <FiShoppingCart size={22} />
           </Link>
 
